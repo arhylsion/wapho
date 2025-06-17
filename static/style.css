@@ -32,7 +32,6 @@ body {
 
 .form-section {
     min-width: 0;
-    /* Prevents grid overflow */
 }
 
 .preview-section {
@@ -61,7 +60,6 @@ body {
 }
 
 .form-container {
-    /* Removed padding as it's now handled by main-content */
 }
 
 .form-group {
@@ -82,7 +80,6 @@ label {
     font-size: 14px;
 }
 
-/* Simplified Font Selection */
 fieldset {
     border: 1px solid #dee2e6;
     border-radius: 8px;
@@ -296,7 +293,6 @@ select {
     text-align: center;
 }
 
-/* Minimal animations */
 .form-group {
     opacity: 0;
     animation: fadeIn 0.3s ease-out forwards;
@@ -330,7 +326,6 @@ select {
     }
 }
 
-/* Responsive design */
 @media (max-width: 900px) {
     .main-content {
         grid-template-columns: 1fr;
@@ -341,7 +336,6 @@ select {
     .preview-section {
         position: static;
         order: -1;
-        /* Move preview to top on mobile */
     }
 
     .preview-container {
@@ -375,20 +369,17 @@ select {
     }
 }
 
-/* Subtle focus states */
 input:focus,
 select:focus {
     box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
 }
 
-/* File upload styling when selected */
 .file-selected {
     background: #d4edda !important;
     border-color: #28a745 !important;
     color: #155724;
 }
 
-/* Footer styles */
 .footer {
     margin-top: 40px;
     padding: 30px 20px;

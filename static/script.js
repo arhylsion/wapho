@@ -1,4 +1,3 @@
-// Simple tips array
 const tips = [
     "💡 Tip: Use contrasting colors for better visibility",
     "🎨 Tip: 45° rotation is most common for watermarks",
@@ -7,7 +6,6 @@ const tips = [
     "💾 Tip: PNG preserves transparency, JPG creates smaller files"
 ];
 
-// Update tip every 7 seconds
 let tipIndex = 0;
 function updateTip() {
     document.getElementById('tipText').textContent = tips[tipIndex];
@@ -15,7 +13,7 @@ function updateTip() {
 }
 setInterval(updateTip, 7000);
 
-// Font option functionality
+// Font option 
 function initializeFontOptions() {
     const defaultOption = document.getElementById('defaultFontOption');
     const uploadOption = document.getElementById('uploadFontOption');
@@ -92,7 +90,6 @@ function initializeForm() {
         }, 2000);
     });
 
-    // Prevent Enter key submission except on button
     document.querySelectorAll('input').forEach(input => {
         input.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
@@ -102,7 +99,7 @@ function initializeForm() {
     });
 }
 
-// Live preview functionality
+// Live preview
 document.querySelector('form').addEventListener('change', handleLivePreview);
 
 async function handleLivePreview() {
@@ -122,7 +119,6 @@ async function handleLivePreview() {
             const blob = await response.blob();
             const url = URL.createObjectURL(blob);
 
-            // Show preview image and hide placeholder
             const previewImage = document.getElementById("previewImage");
             const placeholder = document.getElementById("previewPlaceholder");
 
@@ -130,7 +126,6 @@ async function handleLivePreview() {
             previewImage.style.display = 'block';
             placeholder.style.display = 'none';
         } else {
-            // Show placeholder if preview fails
             const previewImage = document.getElementById("previewImage");
             const placeholder = document.getElementById("previewPlaceholder");
 
@@ -140,7 +135,6 @@ async function handleLivePreview() {
         }
     } catch (error) {
         console.error("Preview failed:", error);
-        // Show placeholder on error
         const previewImage = document.getElementById("previewImage");
         const placeholder = document.getElementById("previewPlaceholder");
 
@@ -150,7 +144,6 @@ async function handleLivePreview() {
     }
 }
 
-// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
     initializeFontOptions();
     initializeFileUpload();
