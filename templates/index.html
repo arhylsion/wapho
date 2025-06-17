@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watermark Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Wapho</h1>
+            <p>Fast, Simple, Watermarking anything! </p>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <div class="form-container">
+                    <div class="tip-box">
+                        <span id="tipText">💡 Tip: Use contrasting colors for better visibility</span>
+                    </div>
+
+                    <form action="/" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="image">Choose your image (PNG/JPG)</label>
+                            <input type="file" id="image" name="image" accept=".png,.jpg,.jpeg" required>
+                        </div>
+
+                        <fieldset>
+                            <legend>Font Options</legend>
+
+                            <div class="font-option active" id="defaultFontOption">
+                                <label>
+                                    <input type="radio" name="font_option" value="default" checked>
+                                    Use built-in font
+                                </label>
+                                <div class="font-select-container" id="defaultFontContainer">
+                                    <select name="default_font" id="defaultFontSelect">
+                                        <option value="arial.ttf">Arial</option>
+                                        <option value="helvetica.ttf">Helvetica</option>
+                                        <option value="times.ttf">Times New Roman</option>
+                                        <option value="georgia.ttf">Georgia</option>
+                                        <option value="verdana.ttf">Verdana</option>
+                                        <option value="comicsans.ttf">Comic Sans MS</option>
+                                        <option value="impact.ttf">Impact</option>
+                                        <option value="trebuchet.ttf">Trebuchet MS</option>
+                                        <option value="couriernew.ttf">Courier New</option>
+                                        <option value="palatino.ttf">Palatino</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="font-option" id="uploadFontOption">
+                                <label>
+                                    <input type="radio" name="font_option" value="upload">
+                                    Upload custom font (.ttf/.otf)
+                                </label>
+                                <div class="font-select-container disabled" id="uploadFontContainer">
+                                    <input type="file" name="font" accept=".ttf,.otf" id="fontUpload">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="divider">
+                            <span>Watermark Settings</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="text">Watermark text</label>
+                            <input type="text" id="text" name="text" value="SAMPLE"
+                                placeholder="Enter your watermark text">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="font_size">Font size</label>
+                                <input type="number" id="font_size" name="font_size" value="36" min="8" max="200">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rotation">Rotation (degrees)</label>
+                                <input type="number" id="rotation" name="rotation" value="45" min="-180" max="180">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="spacing_x">Horizontal spacing</label>
+                                <input type="number" id="spacing_x" name="spacing_x" value="200" min="50" max="1000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="spacing_y">Vertical spacing</label>
+                                <input type="number" id="spacing_y" name="spacing_y" value="150" min="50" max="1000">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="color">Text color</label>
+                                <input type="color" id="color" name="color" value="#ff0000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="format">Output format</label>
+                                <select id="format" name="format">
+                                    <option value="png">PNG (with transparency)</option>
+                                    <option value="jpg">JPG (smaller file)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="generate-btn" id="generateBtn">
+                            Generate Watermark
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-container">
+                    <h3>Live Preview</h3>
+                    <div class="preview-placeholder" id="previewPlaceholder">
+                        📸 Upload an image to see preview
+                    </div>
+                    <img id="previewImage" src="" alt="Preview" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Wapho. Made with ❤️ for simple python project</p>
+            <div class="footer-links">
+                <a href="#about">About</a> •
+                <a href="#help">Help</a> •
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
